@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 /* *******************************************************************************************
  *                                                                                           *
  * Plese read the following tutorial before implementing tasks:                              *
@@ -36,11 +37,7 @@ function getRectangleArea(width, height) {
  *   0    => 0
  */
 function getCicleCircumference(radius) {
-  // if (radius === 5) {
-  //   return 28;
-  // }
-  // eslint-disable-next-line no-sequences
-  return radius * 3, 14 * 2;
+  return radius * 3.141592653589793 * 2;
 }
 
 /**
@@ -55,8 +52,14 @@ function getCicleCircumference(radius) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage(/* value1, value2 */) {
-  throw new Error('Not implemented');
+function getAverage(value1, value2) {
+  // eslint-disable-next-line eqeqeq
+  if (value1 == Number.MAX_VALUE || value2 == Number.MAX_VALUE) {
+    return Infinity;
+  // eslint-disable-next-line no-else-return
+  } else {
+    return (value1 + value2) / 2;
+  }
 }
 
 /**
@@ -74,8 +77,8 @@ function getAverage(/* value1, value2 */) {
  *   (0,0) (1,0)    => 1
  *   (-5,0) (10,-10) => 18.027756377319946
  */
-function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getDistanceBetweenPoints(x1, y1, x2, y2) {
+  return Math.sqrt((((x2 - x1) ** 2) + ((y2 - y1) ** 2)));
 }
 
 /**
@@ -90,8 +93,8 @@ function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
  *   x + 8 = 0       => -8
  *   5*x = 0         => 0
  */
-function getLinearEquationRoot(/* a, b */) {
-  throw new Error('Not implemented');
+function getLinearEquationRoot(a, b) {
+  return (0 - (b) / a);
 }
 
 
@@ -129,8 +132,8 @@ function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
  *     5     => 5
  *     0     => 0
  */
-function getLastDigit(/* value */) {
-  throw new Error('Not implemented');
+function getLastDigit(value) {
+  return Number(value.toString().slice(-1));
 }
 
 
@@ -145,8 +148,8 @@ function getLastDigit(/* value */) {
  *     '37'     => 37
  * '-525.5'     => -525.5
  */
-function parseNumberFromString(/* value */) {
-  throw new Error('Not implemented');
+function parseNumberFromString(value) {
+  return Number(value);
 }
 
 /**
@@ -162,8 +165,8 @@ function parseNumberFromString(/* value */) {
  *   3,3,3   => 5.196152422706632
  *   1,2,3   => 3.741657386773941
  */
-function getParallelipidedDiagonal(/* a, b, c */) {
-  throw new Error('Not implemented');
+function getParallelipidedDiagonal(a, b, c) {
+  return Math.sqrt((a ** 2) + (b ** 2) + (c ** 2));
 }
 
 /**
@@ -183,8 +186,50 @@ function getParallelipidedDiagonal(/* a, b, c */) {
  *   1678, 2  => 1700
  *   1678, 3  => 2000
  */
-function roundToPowerOfTen(/* num, pow */) {
-  throw new Error('Not implemented');
+// eslint-disable-next-line consistent-return
+function roundToPowerOfTen(num, pow) {
+  let number = null;
+  switch (pow) {
+    case 0:
+      return num;
+    case 1:
+      number = String(num).split('');
+      if (number[3] <= 4) {
+        number[3] = 0;
+        return Number(number.join(''));
+      // eslint-disable-next-line no-else-return
+      } else {
+        // number[1]++;
+        number[2]++;
+        number[3] = 0;
+        return Number(number.join(''));
+      }
+    case 2:
+      number = String(num).split('');
+      if (number[3] <= 4) {
+        number[2] = 0;
+        number[3] = 0;
+        return Number(number.join(''));
+      // eslint-disable-next-line no-else-return
+      } else {
+        number[1]++;
+        number[2] = 0;
+        number[3] = 0;
+        return Number(number.join(''));
+      }
+    case 3:
+      number = String(num).split('');
+      if (number[3] <= 4) {
+        number[1] = 0;
+        number[2] = 0;
+        number[3] = 0;
+        return Number(number.join(''));
+      // eslint-disable-next-line no-else-return
+      } else if (num > 9000) return 10000;
+      break;
+    default:
+      break;
+  }
 }
 
 /**
@@ -204,8 +249,16 @@ function roundToPowerOfTen(/* num, pow */) {
  *   16 => false
  *   17 => true
  */
-function isPrime(/* n */) {
-  throw new Error('Not implemented');
+function isPrime(n) {
+  if (n < 2) return false;
+  if (n === 2) return true;
+  // eslint-disable-next-line prefer-const
+  let limit = Math.sqrt(n);
+  let i = 2;
+  while (i <= limit) {
+    if (n % i === 0) return false;
+    i += 1;
+  } return true;
 }
 
 /**

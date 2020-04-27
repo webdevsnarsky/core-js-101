@@ -1,4 +1,4 @@
-const assert = require('assert');
+/* const assert = require('assert');
 const tasks = require('../src/03-arrays-tasks');
 it.optional = require('../extensions/it-optional');
 
@@ -857,3 +857,4 @@ describe('03-arrays-tasks', () => {
       });
   });
 });
+ */

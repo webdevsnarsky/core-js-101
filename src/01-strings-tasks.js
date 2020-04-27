@@ -182,8 +182,12 @@ function convertToUpperCase(str) {
  *   'info@gmail.com' => ['info@gmail.com']
  */
 function extractEmails(str) {
-  return [str.replace(/;/g, ',')];
+  if (str.includes(';')) {
+    return str.split(/;/g);
+  } return [str];
 }
+// return [str.replace(/;/g, ',')];
+
 
 /**
  * Returns the string representation of rectangle with specified width and height
