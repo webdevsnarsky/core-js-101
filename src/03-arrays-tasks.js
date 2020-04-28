@@ -73,9 +73,8 @@ function doubleArray(arr) {
  *    [-1, 2, -5, -4, 0] => [ 2 ]
  *    [] => []
  */
-function getArrayOfPositives(arr) {
+function getArrayOfPositives(/* arr */) {
   // eslint-disable-next-line consistent-return
-  
 }
 
 /**
