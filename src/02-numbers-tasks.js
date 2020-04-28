@@ -1,3 +1,4 @@
+/* eslint-disable no-fallthrough */
 /* eslint-disable no-plusplus */
 /* *******************************************************************************************
  *                                                                                           *
@@ -53,13 +54,7 @@ function getCicleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-  // eslint-disable-next-line eqeqeq
-  if (value1 == Number.MAX_VALUE || value2 == Number.MAX_VALUE) {
-    return Infinity;
-  // eslint-disable-next-line no-else-return
-  } else {
-    return (value1 + value2) / 2;
-  }
+  return value1 / 2 + value2 / 2;
 }
 
 /**
@@ -116,8 +111,23 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (0,1)     => 0
  *   (0,1) (1,2)     => 0
  */
-function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+// eslint-disable-next-line consistent-return
+function getAngleBetweenVectors(x1, y1, x2, y2) {
+  const one = Math.sqrt((x1 * x1) + (y1 * y1));
+  const two = Math.sqrt((x2 * x2) + (y2 * y2));
+
+  const sqrt = (x1 * x2) + (y1 * y2);
+  const res = sqrt / (one * two);
+
+  switch (res) {
+    case 0:
+      return Math.PI / 2;
+    case -1:
+      return Math.PI;
+    case 1:
+      return 0;
+    default:
+  }
 }
 
 /**
@@ -276,8 +286,14 @@ function isPrime(n) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(/* value, def */) {
-  throw new Error('Not implemented');
+function toNumber(value, def) {
+  // eslint-disable-next-line no-restricted-globals
+  if (value === undefined || isNaN(value) === true) {
+    return def;
+  // eslint-disable-next-line no-else-return
+  } else {
+    return Number(value);
+  }
 }
 
 module.exports = {

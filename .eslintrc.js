@@ -17,9 +17,6 @@ module.exports = {
   },
   rules: {
     "linebreak-style": 0,
-    // "prefer-const": ["false", {
-    //     "destructuring": 'off',
-    //     "ignoreReadBeforeAssign": true,
-    // }]
+    // ["error", { "props": false }]
   },
 };
