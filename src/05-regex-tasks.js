@@ -54,7 +54,8 @@ function getRegexForGuid() {
  *
  */
 function getRegexForPitSpot() {
-  return /(pit|spot|spate|slap two|respite){0,13}/;
+  throw new Error('Not implemented');
+  // return /(pit|spot|spate|slap two|respite){0,13}/;
 }
 
 
